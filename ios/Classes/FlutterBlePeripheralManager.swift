@@ -53,6 +53,10 @@ class FlutterBlePeripheralManager : NSObject {
         if (advertiseData.localName != nil) {
             dataToBeAdvertised[CBAdvertisementDataLocalNameKey] = advertiseData.localName
         }
+
+        //Next 2 lines created by Hani for adding UUID into service data
+        let transferService = CBMutableService(type: CBUUID(string: advertiseData.uuid!), primary: true)
+        peripheralManager.add(transferService)
         
         peripheralManager.startAdvertising(dataToBeAdvertised)
         
