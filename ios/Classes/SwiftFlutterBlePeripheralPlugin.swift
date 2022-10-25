@@ -58,15 +58,15 @@ public class SwiftFlutterBlePeripheralPlugin: NSObject, FlutterPlugin {
             uuid: map?["uuid"] as? String ,
             localName: map?["localName"] as? String
         )
-        flutterBlePeripheralManager.removeAllServices()
-        flutterBlePeripheralManager.peripheralManager.removeAllServices()
+        //flutterBlePeripheralManager.removeAllServices()
+        //flutterBlePeripheralManager.peripheralManager.removeAllServices()
         flutterBlePeripheralManager.start(advertiseData: advertiseData)
         result(nil)
     }
     
     private func stopPeripheral(_ result: @escaping FlutterResult) {
-        flutterBlePeripheralManager.removeAllServices()
-        flutterBlePeripheralManager.peripheralManager.removeAllServices()
+        //flutterBlePeripheralManager.removeAllServices()
+        //flutterBlePeripheralManager.peripheralManager.removeAllServices()
         flutterBlePeripheralManager.peripheralManager.stopAdvertising()
         stateChangedHandler.publishPeripheralState(state: PeripheralState.idle)
         result(nil)

@@ -46,7 +46,7 @@ class FlutterBlePeripheralManager : NSObject {
     func start(advertiseData: PeripheralData) {
         
         peripheralManager.removeAllServices()
-        
+
         var dataToBeAdvertised: [String: Any]! = [:]
         if (advertiseData.uuid != nil) {
             dataToBeAdvertised[CBAdvertisementDataServiceUUIDsKey] = [CBUUID(string: advertiseData.uuid!)]
@@ -58,7 +58,7 @@ class FlutterBlePeripheralManager : NSObject {
 
         //Next 3 lines created by Hani for adding UUID into service data
         let transferService = CBMutableService(type: CBUUID(string: advertiseData.uuid!), primary: true)
-        peripheralManager.removeAllServices()
+        peripheralManager.removeAllServices();
         
         peripheralManager.add(transferService)
         
