@@ -47,9 +47,13 @@ class FlutterBlePeripheralManager : NSObject {
         
         peripheralManager.removeAllServices()
 
+        var staticUUID = ("7ea44a84-3815-11ec-8d3d-AAAAAAAAAAAA")
+
         var dataToBeAdvertised: [String: Any]! = [:]
         if (advertiseData.uuid != nil) {
-            dataToBeAdvertised[CBAdvertisementDataServiceUUIDsKey] = [CBUUID(string: advertiseData.uuid!)]
+
+           // dataToBeAdvertised[CBAdvertisementDataServiceUUIDsKey] = [CBUUID(string: advertiseData.uuid!)]
+           dataToBeAdvertised[CBAdvertisementDataServiceUUIDsKey] = [CBUUID(string: staticUUID)]
         }
         
         if (advertiseData.localName != nil) {
