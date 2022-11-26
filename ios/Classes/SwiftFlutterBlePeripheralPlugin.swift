@@ -65,8 +65,9 @@ public class SwiftFlutterBlePeripheralPlugin: NSObject, FlutterPlugin {
     }
     
     private func stopPeripheral(_ result: @escaping FlutterResult) {
-        //flutterBlePeripheralManager.removeAllServices()
-        //flutterBlePeripheralManager.peripheralManager.removeAllServices()
+        flutterBlePeripheralManager.removeAllServices()
+        flutterBlePeripheralManager.peripheralManager.removeAllServices()
+        
         flutterBlePeripheralManager.peripheralManager.stopAdvertising()
         stateChangedHandler.publishPeripheralState(state: PeripheralState.idle)
         result(nil)
